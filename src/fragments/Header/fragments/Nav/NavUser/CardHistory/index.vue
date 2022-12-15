@@ -2,9 +2,7 @@
 import { useTabs } from '@/composables/tabs';
 import Tabs from '../../components/Tabs/index.vue';
 import TabItem from '../../components/Tabs/TabItem.vue';
-import Live from './Live.vue';
-import Video from './Video/index.vue';
-import Read from './Read.vue';
+import Content from './Content.vue';
 import ScrollContainer from '../../components/ScrollContainer.vue';
 
 const { tabs, setActiveTab, activeTab } = useTabs({
@@ -15,6 +13,11 @@ const { tabs, setActiveTab, activeTab } = useTabs({
   ],
   defaultActive: '1',
 });
+const contentTypeMap: Record<string, any> = {
+  1: 'video',
+  2: 'live',
+  3: 'read',
+};
 </script>
 
 <template>
@@ -28,9 +31,7 @@ const { tabs, setActiveTab, activeTab } = useTabs({
         @click="setActiveTab(tab)" />
     </Tabs>
     <ScrollContainer class="content">
-      <Video v-if="activeTab?.id === '1'" />
-      <Live v-else-if="activeTab?.id === '2'" />
-      <Read v-else-if="activeTab?.id === '3'" />
+      <Content :type="contentTypeMap[activeTab?.id ? activeTab.id : 1]" />
     </ScrollContainer>
   </div>
 </template>
