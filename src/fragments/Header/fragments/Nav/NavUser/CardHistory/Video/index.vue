@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import Item from './Item.vue';
 import Button from '../History/Button.vue';
+import DateTitle from '../History/components/DateTitle.vue';
 
 const dataListToday: { deviceType: 'mobile' | 'pc'; [key: string]: any }[] = [
   {
@@ -62,21 +63,21 @@ const dataListToday: { deviceType: 'mobile' | 'pc'; [key: string]: any }[] = [
 
 <template>
   <div class="history-video">
-    <p class="block-date">今天</p>
+    <DateTitle>今天</DateTitle>
     <Item
       class="item"
       v-for="data in dataListToday.slice(0, 2)"
       :key="data.title"
       v-bind="data">
     </Item>
-    <p class="block-date">昨天</p>
+    <DateTitle>昨天</DateTitle>
     <Item
       class="item"
       v-for="data in dataListToday.slice(2, 4)"
       :key="data.title"
       v-bind="data">
     </Item>
-    <p class="block-date">更早</p>
+    <DateTitle>更早</DateTitle>
     <Item
       class="item"
       v-for="data in dataListToday.slice(4, 6)"
@@ -91,14 +92,6 @@ const dataListToday: { deviceType: 'mobile' | 'pc'; [key: string]: any }[] = [
 .history-video {
   min-height: 100%;
   position: relative;
-
-  .block-date {
-    margin: 12px 0 5px 0;
-    padding: 0 20px;
-    font-size: var(--fs2);
-    line-height: 16px;
-    color: var(--text1);
-  }
   .bottom-button {
     margin: 16px 18px;
   }
