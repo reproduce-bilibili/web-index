@@ -1,0 +1,64 @@
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin line-clamp($line: 2) {
+  @if $line < 1 {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@mixin create-float-vue-theme($theme-name, $animation) {
+  .v-popper--theme-#{$theme-name} {
+    transition-duration: 0.3s !important;
+    z-index: 10 !important;
+    .v-popper__wrapper {
+      // padding-top: 8px;
+    }
+    .v-popper__inner {
+      overflow: visible;
+      background: var(--bg1_float);
+      color: var(--text1);
+      padding: 0;
+      border: 1px var(--line_regular) solid;
+      border-radius: var(--radius2);
+      box-shadow: 0 0 30px rgb(0 0 0 / 10%);
+    }
+    &.v-popper__popper {
+      &.v-popper__popper {
+        &--show-to {
+          animation: $animation 0.3s 0.15s;
+        }
+        &--hide-to {
+          animation: $animation 0.3s reverse;
+        }
+        &--shown {
+          transition: opacity 0.3s;
+          transition-delay: 0.15s;
+        }
+        &--hidden {
+          transition: opacity 0.3s, visibility 0.3s;
+        }
+      }
+    }
+    .v-popper__arrow {
+      &-outer,
+      &-inner {
+        visibility: hidden;
+      }
+      &-container {
+        display: none;
+      }
+    }
+  }
+}

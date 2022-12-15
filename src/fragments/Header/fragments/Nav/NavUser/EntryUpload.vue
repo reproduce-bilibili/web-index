@@ -1,0 +1,37 @@
+<script lang="ts" setup>
+import ButtonNavBase from '@/components/Button/ButtonNavBase.vue';
+import useI18nLocal from '@/hooks/useI18nLocal';
+import i18nOptions from '@/fragments/Header/i18n';
+import Upload from '@/components/Icon/Upload.vue';
+
+const { t } = useI18nLocal(i18nOptions);
+</script>
+
+<template>
+  <ButtonNavBase class="entry--upload">
+    <Upload class="entry--upload__icon"/>
+    <span>{{ t('contribute') }}</span>
+  </ButtonNavBase>
+</template>
+
+<style lang="scss" scoped>
+.entry--upload {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fb7299;
+  color: #fff;
+  width: 90px;
+  height: 34px;
+  border-radius: var(--radius2);
+  text-align: center;
+  font-size: var(--fs1);
+  transition-duration: .3s;
+  &:hover {
+    background-color: #fc8bab;
+  }
+  &__icon {
+    margin-right: 5px;
+  }
+}
+</style>
