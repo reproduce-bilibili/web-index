@@ -3,7 +3,7 @@ import { computed, PropType } from 'vue';
 import Graph from '@/components/Graph/index.vue';
 import DropDownMenu from '../../components/DropDownMenu.vue';
 import Level from './Level.vue';
-import { makeUserInfoProps } from '../../composables/userInfo';
+import { makeUserInfoProps } from '@/composables/userInfo';
 import Count from './Count.vue';
 import LevelCard from './LevelCard.vue';
 import LinkList from './LinkList.vue';

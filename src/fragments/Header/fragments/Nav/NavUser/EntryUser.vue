@@ -5,7 +5,7 @@ import { Avatar } from '@/components/Avatar/index';
 import CardUser from './CardUser/index.vue';
 import { computed, ref, watch } from 'vue';
 import { gsap } from 'gsap';
-import { userInjectUser } from '../composables/userInfo';
+import { userInjectUser } from '@/composables/userInfo';
 const userInfo = userInjectUser();
 const showBigAvatar = ref(false);
 const avatarSmallRef = ref<Avatar>();
