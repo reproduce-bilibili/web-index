@@ -31,6 +31,7 @@ export default genericComponent()({
 .nav-tab-item {
   flex-grow: 1;
   flex-shrink: 1;
+  flex-basis: 0;
   padding: 15px 0;
   text-align: center;
   font-size: var(--fs2);
