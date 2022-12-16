@@ -47,6 +47,8 @@ import EntryUser from './EntryUser.vue';
     height: 100%;
     & > * {
       height: 100%;
+      display: flex;
+      align-items: center;
     }
     &.user {
       margin-right: 10px;
