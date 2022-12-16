@@ -12,7 +12,7 @@ const cls = computed(() => clsx(['entry--default', { jump: props.jump }]));
 </script>
 
 <template>
-  <ButtonNavBase :class="cls"> <slot /><slot name="popover" /></ButtonNavBase>
+  <ButtonNavBase :class="cls"> <slot /></ButtonNavBase>
 </template>
 
 <style lang="scss" scoped>
