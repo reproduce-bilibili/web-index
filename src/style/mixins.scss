@@ -5,6 +5,7 @@
 }
 
 @mixin line-clamp($line: 2) {
+  word-break: break-all;
   @if $line < 1 {
     overflow: hidden;
     white-space: nowrap;

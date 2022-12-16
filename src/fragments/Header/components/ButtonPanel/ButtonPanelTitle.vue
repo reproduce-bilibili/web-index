@@ -30,8 +30,7 @@ export default genericComponent()({
 <style lang="scss" scoped>
 @use '@/style/mixins.scss' as *;
 .button-panel__title {
-  @include line-clamp();
-  word-break: break-word;
+  @include line-clamp(2);
   -webkit-line-clamp: inherit;
   &--sm {
     margin-top: 6px;

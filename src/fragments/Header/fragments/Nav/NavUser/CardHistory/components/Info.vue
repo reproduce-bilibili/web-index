@@ -48,7 +48,6 @@ defineProps({
     font-size: var(--fs2);
     margin-bottom: 4px;
     color: var(--text1);
-    word-break: break-all;
   }
   .name,
   .date {
