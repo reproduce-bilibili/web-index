@@ -3,6 +3,8 @@ import { useTabs } from '@/composables/tabs';
 import Tabs from '../../components/Tabs/index.vue';
 import TabItem from '../../components/Tabs/TabItem.vue';
 import ContentVideo from './ContentVideo.vue';
+import ContentLive from './ContentLive.vue';
+import ContentRead from './ContentRead.vue';
 
 const { tabs, setActiveTab, activeTab } = useTabs({
   tabs: [
@@ -36,8 +38,8 @@ const { tabs, setActiveTab, activeTab } = useTabs({
         @click="setActiveTab(tabItem)"></TabItem>
     </Tabs>
     <ContentVideo v-if="activeTab?.id === '1'" />
-    <!-- <ContentVideo v-else-if="activeTab?.id === '2'" />
-    <ContentVideo v-else-if="activeTab?.id === '3'" /> -->
+    <ContentLive v-else-if="activeTab?.id === '2'" />
+    <ContentRead v-else-if="activeTab?.id === '3'" />
   </div>
 </template>
 
