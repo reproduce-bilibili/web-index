@@ -37,7 +37,7 @@ const getDuration = (time: string) => {
 </script>
 
 <template>
-  <ListItemVue class="history-video__item video-container">
+  <ListItemVue class="history-item video-container">
     <Img v-if="putImgLeft" class="img--left" :src="src">
       <Tag v-if="type === 'video'" class="time"
         ><span class="text">{{ timeRange[0] }}/{{ timeRange[1] }}</span></Tag
@@ -67,7 +67,7 @@ const getDuration = (time: string) => {
 </template>
 
 <style lang="scss" scoped>
-.history-video__item {
+.history-item {
   padding: 10px 20px;
   display: flex;
   .img--left,
