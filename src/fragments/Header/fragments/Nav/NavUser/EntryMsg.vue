@@ -42,7 +42,7 @@ const totalCount = computed(() =>
 </script>
 
 <template>
-  <DropDown :distance="20.875">
+  <DropDown>
     <BadgeWrapper :count="totalCount" :offset="{ left: '26px', top: '-6px' }">
       <ButtonNavIconTop :text="t('msg')">
         <template #icon="data">

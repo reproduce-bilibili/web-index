@@ -44,6 +44,10 @@ import EntryUser from './EntryUser.vue';
   align-items: center;
   &__item {
     list-style: none;
+    height: 100%;
+    & > * {
+      height: 100%;
+    }
     &.user {
       margin-right: 10px;
     }

@@ -52,11 +52,9 @@ watch(showBigAvatar, (v, ov) => {
 
 <template>
   <DropDown
-    class="avatar-container"
     @apply-hide="showBigAvatar = false"
     @apply-show="showBigAvatar = true"
-    :skidding="-20"
-    :distance="15">
+    :skidding="-20">
     <ButtonNavBase
       class="avatar-wrapper"
       href="https://space.bilibili.com/11171730">
@@ -87,7 +85,7 @@ watch(showBigAvatar, (v, ov) => {
     opacity: 0;
   }
 }
-.avatar-container {
+.avatar-wrapper {
   position: relative;
   width: 50px;
   height: 50px;

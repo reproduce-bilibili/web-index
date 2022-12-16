@@ -3,15 +3,18 @@ import ButtonNavBase from '@/components/Button/ButtonNavBase.vue';
 import useI18nLocal from '@/hooks/useI18nLocal';
 import i18nOptions from '@/fragments/Header/i18n';
 import Upload from '@/components/Icon/Upload.vue';
+import DropDown from '../components/DropDown.vue';
 
 const { t } = useI18nLocal(i18nOptions);
 </script>
 
 <template>
-  <ButtonNavBase class="entry--upload">
-    <Upload class="entry--upload__icon"/>
-    <span>{{ t('contribute') }}</span>
-  </ButtonNavBase>
+  <DropDown>
+    <ButtonNavBase class="entry--upload">
+      <Upload class="entry--upload__icon" />
+      <span>{{ t('contribute') }}</span>
+    </ButtonNavBase>
+  </DropDown>
 </template>
 
 <style lang="scss" scoped>
@@ -26,7 +29,7 @@ const { t } = useI18nLocal(i18nOptions);
   border-radius: var(--radius2);
   text-align: center;
   font-size: var(--fs1);
-  transition-duration: .3s;
+  transition-duration: 0.3s;
   &:hover {
     background-color: #fc8bab;
   }

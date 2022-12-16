@@ -10,7 +10,7 @@ const { t } = useI18nLocal(i18nOptions);
 </script>
 
 <template>
-  <Dropdown :distance="20.875">
+  <Dropdown>
     <ButtonNavIconTop :text="t('history')">
       <template #icon="data">
         <History v-bind="data" />
