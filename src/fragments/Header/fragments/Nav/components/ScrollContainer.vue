@@ -1,5 +1,20 @@
+<script lang="ts" setup>
+import { useScroll } from '@/composables/scroll';
+import { PropType } from 'vue';
+
+const props = defineProps({
+  onToBottom: Function as PropType<() => any>,
+  onToTop: Function as PropType<() => any>,
+});
+
+const { target: container } = useScroll({
+  onBottom: props.onToBottom,
+  onTop: props.onToTop,
+});
+</script>
+
 <template>
-  <div class="scroll-container"><slot /></div>
+  <div class="scroll-container" ref="container"><slot /></div>
 </template>
 
 <style lang="scss" scoped>
