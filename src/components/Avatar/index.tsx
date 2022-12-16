@@ -39,7 +39,7 @@ export const Avatar = genericComponent()({
         : tagMap[props.showTag],
     );
     useRender(() => (
-      <Graph class={['b-avatar']}>
+      <Graph class={['b-avatar']} title={props.title}>
         <div class={['b-avatar__content']} v-img={props.src}></div>
         {tagUrl.value ? (
           <div class="b-avatar__vip" v-img={tagUrl.value}></div>
