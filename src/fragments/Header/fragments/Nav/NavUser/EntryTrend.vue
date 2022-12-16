@@ -4,6 +4,7 @@ import useI18nLocal from '@/hooks/useI18nLocal';
 import i18nOptions from '@/fragments/Header/i18n';
 import Trend from '@/components/Icon/Trend.vue';
 import DropDown from '../components/DropDown.vue';
+import CardTrend from './CardTrend/index.vue';
 
 const { t } = useI18nLocal(i18nOptions);
 </script>
@@ -15,5 +16,8 @@ const { t } = useI18nLocal(i18nOptions);
         <Trend v-bind="data" />
       </template>
     </ButtonNavIconTop>
+    <template #popper>
+      <CardTrend />
+    </template>
   </DropDown>
 </template>

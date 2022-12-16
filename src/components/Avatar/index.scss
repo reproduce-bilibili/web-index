@@ -1,20 +1,18 @@
-.b-avatar__content {
-  display: flex;
-  flex-shrink: 0;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 2px solid #ffffff;
+.b-avatar {
   position: relative;
-}
-
-.b-avatar__vip {
-  // &::after {
-    // content: '';
+  &__content {
+    display: flex;
+    flex-shrink: 0;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #ffffff;
+    position: relative;
+  }
+  &__vip {
     position: absolute;
     width: 27.5%;
     height: 27.5%;
     right: 0;
-    bottom: 0;
-  //   background-image: url('/s1.hdslb.com/bfs/seed/jinkela/short/user-avatar/big-vip.svg');
-  // }
+    bottom: -1px;
+  }
 }

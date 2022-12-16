@@ -63,11 +63,15 @@ watch(showBigAvatar, (v, ov) => {
         :user-info="userInfo"
         class="avatar avatar--large"
         ref="avatarLargeRef"
-        src="/i0.hdslb.com/bfs/face/8ba4007cbe202ee990b9e14fb26e159da6e8d9af.jpg@240w_240h_1c_1s.webp" />
+        :src="
+          userInfo ? `${userInfo?.avatar}@240w_240h_1c_1s.webp` : undefined
+        " />
       <Avatar
         class="avatar"
         ref="avatarSmallRef"
-        src="/i0.hdslb.com/bfs/face/8ba4007cbe202ee990b9e14fb26e159da6e8d9af.jpg@120w_120h_1c_1s.webp" />
+        :src="
+          userInfo ? `${userInfo?.avatar}@120w_120h_1c_1s.webp` : undefined
+        " />
     </ButtonNavBase>
     <template #popper>
       <CardUser />

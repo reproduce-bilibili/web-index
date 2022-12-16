@@ -15,7 +15,7 @@ import Graph from '@/components/Graph/index.vue';
 import IconUp from '@/components/Icon/Up.vue';
 import { propsFactory } from '@/utils/propsFactory';
 import { PropType } from 'vue';
-import { deviceIconMap } from './constant';
+import { deviceIconMap } from '../constant';
 
 defineProps({
   ...makeInfoProps(),

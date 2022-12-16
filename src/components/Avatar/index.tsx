@@ -1,8 +1,9 @@
 import { makePanelProps } from '@/composables/panel';
-import { makeUserInfoProps } from '@/composables/userInfo';
+import { makeUserInfoSimpleProps } from '@/composables/userInfo';
 import { genericComponent } from '@/utils/defineComponent';
 import { useRender } from '@/utils/useRender';
 import { computed, PropType } from 'vue';
+import Graph from '@/components/Graph/index.vue';
 import './index.scss';
 
 const tagMap = {
@@ -16,7 +17,7 @@ export const Avatar = genericComponent()({
     ...makePanelProps({
       title: undefined,
     }),
-    ...makeUserInfoProps(),
+    ...makeUserInfoSimpleProps(),
     showTag: {
       type: [Boolean, String] as PropType<true | false | keyof typeof tagMap>,
       default: false,
@@ -26,11 +27,11 @@ export const Avatar = genericComponent()({
   setup(props) {
     const tagUrl = computed(() =>
       props.showTag === true
-        ? props.userInfo.isBusiness
+        ? props.userInfo?.isBusiness
           ? tagMap['business']
-          : props.userInfo.isPersonal
+          : props.userInfo?.isPersonal
           ? tagMap['personal']
-          : props.userInfo.isVip
+          : props.userInfo?.isVip
           ? tagMap['vip']
           : undefined
         : props.showTag === false
@@ -38,12 +39,12 @@ export const Avatar = genericComponent()({
         : tagMap[props.showTag],
     );
     useRender(() => (
-      <div class={['b-avatar']}>
+      <Graph class={['b-avatar']}>
         <div class={['b-avatar__content']} v-img={props.src}></div>
         {tagUrl.value ? (
           <div class="b-avatar__vip" v-img={tagUrl.value}></div>
         ) : null}
-      </div>
+      </Graph>
     ));
   },
 });

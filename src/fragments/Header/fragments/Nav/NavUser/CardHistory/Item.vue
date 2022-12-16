@@ -8,10 +8,10 @@ import Tag from './components/Tag.vue';
 import Progress from '@/components/Progress.vue';
 import ListItemVue from '../../components/ListItem.vue';
 import dayjs from 'dayjs';
-import { makeTabTypeProps } from '@/composables/navTabType';
+import { makeItemTypeProps } from '../../composables/ItemType';
 
 const props = defineProps({
-  ...makeTabTypeProps(),
+  ...makeItemTypeProps(),
   ...makeImgProps(),
   ...makeInfoProps(),
   isActive: Boolean,

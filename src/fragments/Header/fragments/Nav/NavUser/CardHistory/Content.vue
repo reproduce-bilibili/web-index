@@ -3,10 +3,10 @@ import Item from './Item.vue';
 import Graph from '@/components/Graph/index.vue';
 import DateTitle from './components/DateTitle.vue';
 import { computed } from 'vue';
-import { makeTabTypeProps } from '@/composables/navTabType';
+import { makeItemTypeProps } from '../../composables/ItemType';
 
 const props = defineProps({
-  ...makeTabTypeProps(),
+  ...makeItemTypeProps(),
 });
 
 interface Data {

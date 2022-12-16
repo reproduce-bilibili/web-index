@@ -16,7 +16,13 @@ export interface UserInfo {
   isVip: boolean;
   isBusiness: boolean;
   isPersonal: boolean;
+  avatar: string;
 }
+
+export type UserInfoSimple = Pick<
+  UserInfo,
+  'uid' | 'nickname' | 'isVip' | 'isBusiness' | 'isPersonal' | 'avatar'
+>;
 
 // only for test
 export const mockUser: UserInfo = {
@@ -32,7 +38,22 @@ export const mockUser: UserInfo = {
   isVip: true,
   isBusiness: false,
   isPersonal: false,
+  avatar: '/i0.hdslb.com/bfs/face/8ba4007cbe202ee990b9e14fb26e159da6e8d9af.jpg',
 };
+
+export interface UserInfoProps {
+  userInfo: UserInfo;
+}
+
+export interface UserInfoSimpleProps {
+  userInfo: UserInfoSimple;
+}
+
+export const makeUserInfoSimpleProps = propsFactory({
+  userInfo: {
+    type: Object as PropType<UserInfoSimple>,
+  },
+});
 
 export const makeUserInfoProps = propsFactory({
   userInfo: {
@@ -45,6 +66,7 @@ export const makeUserInfoProps = propsFactory({
   },
 });
 
-export const useProvideUser = (user: Ref<UserInfo>) => provide(UserInfoSymbol, user);
+export const useProvideUser = (user: Ref<UserInfo>) =>
+  provide(UserInfoSymbol, user);
 
 export const userInjectUser = () => inject<Ref<UserInfo>>(UserInfoSymbol);
