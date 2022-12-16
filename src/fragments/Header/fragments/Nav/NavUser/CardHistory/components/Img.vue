@@ -1,24 +1,9 @@
 <script lang="ts" setup>
-import { makeImgProps } from '@/composables/img';
-
-defineProps({
-  ...makeImgProps(),
-});
+import ImgWithCover from '../../../components/ImgWithCover.vue';
 </script>
 
 <template>
-  <div class="history-img">
-    <div class="img-content" v-img="src"></div>
+  <ImgWithCover class="history-img">
     <slot />
-  </div>
+  </ImgWithCover>
 </template>
-
-<style lang="scss" scoped>
-.history-img {
-  position: relative;
-  .img-content {
-    overflow: hidden;
-    border-radius: 4px;
-  }
-}
-</style>
