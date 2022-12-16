@@ -1,8 +1,9 @@
 <script lang="ts" setup>
-import { useProvideUser, mockUser } from './composables/userInfo';
+import { useProvideUser, mockUser } from '@/composables/userInfo';
+import { ref } from 'vue';
 import NavSite from './NavSite/index.vue';
 import NavUser from './NavUser/index.vue';
-useProvideUser(mockUser);
+useProvideUser(ref(mockUser));
 </script>
 
 <template>
