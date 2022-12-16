@@ -2,12 +2,11 @@
 import { makeImgProps } from '@/composables/img';
 import { computed, PropType } from 'vue';
 import { makeInfoProps } from './components/Info.vue';
-// import Video from './History/Video.vue';
 import Img from './components/Img.vue';
 import Info from './components/Info.vue';
 import Tag from './components/Tag.vue';
 import Progress from '@/components/Progress.vue';
-import Container from './components/Container.vue';
+import ListItemVue from '../../components/ListItem.vue';
 import dayjs from 'dayjs';
 import { makeTabTypeProps } from '@/composables/navTabType';
 
@@ -38,7 +37,7 @@ const getDuration = (time: string) => {
 </script>
 
 <template>
-  <Container class="history-video__item video-container">
+  <ListItemVue class="history-video__item video-container">
     <Img v-if="putImgLeft" class="img--left" :src="src">
       <Tag v-if="type === 'video'" class="time"
         ><span class="text">{{ timeRange[0] }}/{{ timeRange[1] }}</span></Tag
@@ -64,11 +63,12 @@ const getDuration = (time: string) => {
       :date="date"
       :name="name" />
     <Img v-if="!putImgLeft" class="img--right" :src="src" />
-  </Container>
+  </ListItemVue>
 </template>
 
 <style lang="scss" scoped>
 .history-video__item {
+  padding: 10px 20px;
   display: flex;
   .img--left,
   .img--right {
