@@ -22,6 +22,9 @@ export const Avatar = genericComponent()({
       type: [Boolean, String] as PropType<true | false | keyof typeof tagMap>,
       default: false,
     },
+    borderColor: {
+      type: String,
+    },
   },
 
   setup(props) {
@@ -40,7 +43,10 @@ export const Avatar = genericComponent()({
     );
     useRender(() => (
       <Graph class={['b-avatar']} title={props.title}>
-        <div class={['b-avatar__content']} v-img={props.src}></div>
+        <div
+          class={['b-avatar__content']}
+          style={{ borderColor: props.borderColor }}
+          v-img={props.src}></div>
         {tagUrl.value ? (
           <div class="b-avatar__vip" v-img={tagUrl.value}></div>
         ) : null}
