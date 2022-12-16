@@ -14,6 +14,8 @@ export interface UserInfo {
   followCount: number;
   dynamicCount: number;
   isVip: boolean;
+  isBusiness: boolean;
+  isPersonal: boolean;
 }
 
 // only for test
@@ -28,6 +30,8 @@ export const mockUser: UserInfo = {
   followCount: 203,
   dynamicCount: 12,
   isVip: true,
+  isBusiness: false,
+  isPersonal: false,
 };
 
 export const makeUserInfoProps = propsFactory({

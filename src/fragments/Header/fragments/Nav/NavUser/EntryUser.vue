@@ -59,7 +59,8 @@ watch(showBigAvatar, (v, ov) => {
       class="avatar-wrapper"
       href="https://space.bilibili.com/11171730">
       <Avatar
-        :show-vip-tag="!!userInfo?.isVip"
+        :show-tag="true"
+        :user-info="userInfo"
         class="avatar avatar--large"
         ref="avatarLargeRef"
         src="/i0.hdslb.com/bfs/face/8ba4007cbe202ee990b9e14fb26e159da6e8d9af.jpg@240w_240h_1c_1s.webp" />
