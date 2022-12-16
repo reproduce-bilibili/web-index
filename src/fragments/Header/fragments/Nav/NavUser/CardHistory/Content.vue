@@ -2,13 +2,11 @@
 import Item from './Item.vue';
 import Graph from '@/components/Graph/index.vue';
 import DateTitle from './components/DateTitle.vue';
-import { computed, PropType } from 'vue';
+import { computed } from 'vue';
+import { makeTabTypeProps } from '@/composables/navTabType';
 
 const props = defineProps({
-  type: {
-    type: String as PropType<'live' | 'video' | 'read'>,
-    required: true,
-  },
+  ...makeTabTypeProps(),
 });
 
 interface Data {

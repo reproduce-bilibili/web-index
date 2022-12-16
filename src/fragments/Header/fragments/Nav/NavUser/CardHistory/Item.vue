@@ -9,12 +9,10 @@ import Tag from './components/Tag.vue';
 import Progress from '@/components/Progress.vue';
 import Container from './components/Container.vue';
 import dayjs from 'dayjs';
+import { makeTabTypeProps } from '@/composables/navTabType';
 
 const props = defineProps({
-  type: {
-    type: String as PropType<'live' | 'video' | 'read'>,
-    required: true,
-  },
+  ...makeTabTypeProps(),
   ...makeImgProps(),
   ...makeInfoProps(),
   isActive: Boolean,
