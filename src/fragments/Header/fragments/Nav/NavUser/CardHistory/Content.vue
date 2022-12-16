@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import Item from './Item.vue';
-import Graph from '@/components/Graph/index.vue';
+import ButtonViewAll from '../../components/ButtonViewAll.vue';
 import DateTitle from './components/DateTitle.vue';
 import { computed } from 'vue';
 import { makeItemTypeProps } from '../../composables/ItemType';
@@ -210,8 +210,10 @@ const dataList = computed(() => {
       :type="type"
       v-bind="data">
     </Item>
-    <Graph class="bottom-button" href="https://www.bilibili.com/account/history"
-      >查看全部</Graph
+    <ButtonViewAll
+      class="button-bottom"
+      href="https://www.bilibili.com/account/history"
+      >查看全部</ButtonViewAll
     >
   </div>
 </template>
@@ -220,20 +222,8 @@ const dataList = computed(() => {
 .history-video {
   min-height: 100%;
   position: relative;
-  .bottom-button {
+  .button-bottom {
     margin: 16px 18px;
-    display: block;
-    height: 36px;
-    line-height: 36px;
-    text-align: center;
-    color: var(--text2);
-    font-size: var(--fs2);
-    background-color: var(--bg2);
-    border-radius: var(--radius2);
-    transition: color 0.3s;
-    &:hover {
-      color: var(--text1);
-    }
   }
 }
 </style>
