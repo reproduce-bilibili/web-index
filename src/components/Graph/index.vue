@@ -10,11 +10,15 @@ export default genericComponent()({
     ...makeLinkProps(),
   },
   setup(props, { slots, attrs }) {
-    const { tag, href, target } = props;
     const { isLink } = useLink(props, attrs);
-    const Tag = computed(() => (tag ? tag : isLink.value ? 'a' : 'div'));
+    const Tag = computed(() =>
+      props.tag ? props.tag : isLink.value ? 'a' : 'div',
+    );
     useRender(() => (
-      <Tag.value href={href} target={isLink.value ? target : undefined} class="graph">
+      <Tag.value
+        href={props.href}
+        target={isLink.value ? props.target : undefined}
+        class="graph">
         {slots.default?.()}
       </Tag.value>
     ));
