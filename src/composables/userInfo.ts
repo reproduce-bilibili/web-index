@@ -69,4 +69,4 @@ export const makeUserInfoPropsDefault = propsFactory({
 export const useProvideUser = (user: Ref<UserInfo>) =>
   provide(UserInfoSymbol, user);
 
-export const userInjectUser = () => inject<Ref<UserInfo>>(UserInfoSymbol);
+export const userInjectUser = () => inject<Ref<UserInfo>>(UserInfoSymbol) as Ref<UserInfo>;
