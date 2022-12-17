@@ -4,7 +4,7 @@ import ButtonBottom from './components/ButtonBottom.vue';
 import type { Item as ItemType } from './constant';
 import Item from './Item.vue';
 
-const dataList: Omit<ItemType, 'date'>[] = [
+const dataList: Omit<ItemType, 'date' | 'checked'>[] = [
   {
     userInfo: {
       nickname: '熙狗Game',
@@ -41,6 +41,7 @@ const dataList: Omit<ItemType, 'date'>[] = [
 <template>
   <ScrollContainer>
     <Item v-for="data in dataList" v-bind="data" type="live" />
-    <ButtonBottom href="https://link.bilibili.com/p/center/index#/user-center/follow/1" />
+    <ButtonBottom
+      href="https://link.bilibili.com/p/center/index#/user-center/follow/1" />
   </ScrollContainer>
 </template>
