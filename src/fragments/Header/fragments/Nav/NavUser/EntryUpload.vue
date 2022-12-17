@@ -4,6 +4,7 @@ import useI18nLocal from '@/hooks/useI18nLocal';
 import i18nOptions from '@/fragments/Header/i18n';
 import Upload from '@/components/Icon/Upload.vue';
 import DropDown from '../components/DropDown.vue';
+import UploadMenu from './UploadMenu/index.vue';
 
 const { t } = useI18nLocal(i18nOptions);
 </script>
@@ -14,6 +15,9 @@ const { t } = useI18nLocal(i18nOptions);
       <Upload class="entry--upload__icon" />
       <span>{{ t('contribute') }}</span>
     </ButtonNavBase>
+    <template #popper>
+      <UploadMenu />
+    </template>
   </DropDown>
 </template>
 

@@ -63,3 +63,10 @@
     }
   }
 }
+
+@mixin clickable-item($hover-color: var(--graph_bg_thick)) {
+  transition: background-color 0.3s;
+  &:hover {
+    background-color: $hover-color;
+  }
+}
