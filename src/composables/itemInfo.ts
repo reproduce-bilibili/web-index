@@ -4,7 +4,7 @@ import { deviceIconMap } from './constant';
 
 export interface InfoPropsSimple {
   title: string;
-  date: string;
+  date?: string;
   name: string;
 }
 

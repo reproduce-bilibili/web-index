@@ -12,7 +12,7 @@ defineProps({
 <template>
   <Graph class="info-default">
     <div class="title" :title="title">{{ title }}</div>
-    <div class="date">
+    <div class="date" v-if="!!date">
       <component :is="deviceIconMap[deviceType]" class="icon-device" />{{
         date
       }}
@@ -27,6 +27,7 @@ defineProps({
 .info-default {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   .title {
     @include line-clamp(2);
     $line-height: 18px;
