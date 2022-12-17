@@ -19,7 +19,7 @@ const { target: container } = useScroll({
 
 <style lang="scss" scoped>
 .scroll-container {
-  overflow-y: scroll;
+  overflow-y: auto;
   &::-webkit-scrollbar,
   &::-webkit-scrollbar-track {
     background: transparent;
