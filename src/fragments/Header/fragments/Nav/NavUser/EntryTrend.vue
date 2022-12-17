@@ -5,17 +5,20 @@ import i18nOptions from '@/fragments/Header/i18n';
 import Trend from '@/components/Icon/Trend.vue';
 import DropDown from '../components/DropDown.vue';
 import CardTrend from './CardTrend/index.vue';
+import BadgeCount from '../components/BadgeCount.vue';
 
 const { t } = useI18nLocal(i18nOptions);
 </script>
 
 <template>
   <DropDown>
-    <ButtonNavIconTop :text="t('trend')">
-      <template #icon="data">
-        <Trend v-bind="data" />
-      </template>
-    </ButtonNavIconTop>
+    <BadgeCount :count="4">
+      <ButtonNavIconTop :text="t('trend')">
+        <template #icon="data">
+          <Trend v-bind="data" />
+        </template>
+      </ButtonNavIconTop>
+    </BadgeCount>
     <template #popper>
       <CardTrend />
     </template>

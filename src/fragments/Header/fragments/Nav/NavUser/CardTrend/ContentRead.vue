@@ -1,8 +1,11 @@
 <script lang="ts" setup>
 import ScrollContainer from '../../components/ScrollContainer.vue';
 import ButtonBottom from './components/ButtonBottom.vue';
+import NoMoreTip from './components/NoMoreTip.vue';
+import SplitHistory from './components/SplitHistory.vue';
 import type { Item as ItemType } from './constant';
 import Item from './Item.vue';
+import { showHistorySplit, showNoMoreTip } from './utils';
 
 const dataList: ItemType[] = [
   {
@@ -20,6 +23,7 @@ const dataList: ItemType[] = [
     src: '/i0.hdslb.com/bfs/article/banner/34d0dc77cb46e6afb9eba49a8029c12c9abe1a60.png',
     title: '让我们在得意黑之外，再次相见吧。',
     date: '3小时前',
+    checked: true,
   },
   {
     userInfo: {
@@ -36,13 +40,18 @@ const dataList: ItemType[] = [
     src: '/i0.hdslb.com/bfs/article/4e265e065d955a0037406ab3ca041688bcb339b1.jpg',
     title: '嘴上喊着“退钱”的他，陪国足走了20多年',
     date: '8小时前',
+    checked: true,
   },
 ];
 </script>
 
 <template>
   <ScrollContainer>
-    <Item v-for="data in dataList" v-bind="data" type="read" />
+    <NoMoreTip v-if="showNoMoreTip(dataList)" />
+    <template v-for="(data, i) in dataList">
+      <SplitHistory v-if="showHistorySplit(dataList, i)" />
+      <Item v-bind="data" type="video" />
+    </template>
     <ButtonBottom href="https://www.bilibili.com/read/home" />
   </ScrollContainer>
 </template>
