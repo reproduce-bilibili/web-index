@@ -159,7 +159,7 @@ const dataList = computed(() => _dataMap[props.collectionId as number] || []);
   .collection-content {
     flex-grow: 1;
     flex-shrink: 0;
-    padding-top: 12px;
+    padding: 12px 0;
   }
   .action > * {
     flex-grow: 1;
