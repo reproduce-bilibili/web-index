@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import ImgWithCover from '../../../components/ImgWithCover.vue';
+import ImgWithCover from '../../../components/ListItem/ImgWithCover.vue';
 </script>
 
 <template>

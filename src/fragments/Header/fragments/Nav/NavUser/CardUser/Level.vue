@@ -1,12 +1,12 @@
 <script lang="ts" setup>
 import { toFixed } from '@/utils/helpers';
 import { computed } from 'vue';
-import { makeUserInfoProps } from '@/composables/userInfo';
+import { makeUserInfoPropsDefault } from '@/composables/userInfo';
 import Level from '@/components/Level/index.vue';
 import Progress from '@/components/Progress.vue';
 import Graph from '@/components/Graph/index.vue';
 
-const { userInfo } = defineProps({ ...makeUserInfoProps() });
+const { userInfo } = defineProps({ ...makeUserInfoPropsDefault() });
 
 const levelProgressPercent = computed(
   () => `${toFixed((userInfo.experience[0] / userInfo.experience[1]) * 100)}%`,

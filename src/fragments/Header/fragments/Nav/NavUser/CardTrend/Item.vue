@@ -1,21 +1,21 @@
 <script lang="ts" setup>
 import { makeImgProps } from '@/composables/img';
-import { makeInfoProps } from '../../composables/info';
+import { makeInfoPropsSimple } from '@/composables/itemInfo';
 import Img from './components/Img.vue';
 import Info from './components/Info.vue';
 import { Avatar } from '@/components/Avatar';
-import ListItem from '../../components/ListItem.vue';
+import ListItem from '../../components/ListItem/index.vue';
 import IconWatchLater from '@/components/Icon/WatchLater.vue';
 import IconDone from '@/components/Icon/Done.vue';
-import { makeItemTypeProps } from '../../composables/ItemType';
-import { makeUserInfoSimpleProps } from '@/composables/userInfo';
+import { makeItemTypeProps } from '@/composables/itemInfo';
+import { makeUserInfoPropsSimple } from '@/composables/userInfo';
 import { computed, ref } from 'vue';
 
 const props = defineProps({
   ...makeItemTypeProps(),
   ...makeImgProps(),
-  ...makeInfoProps(),
-  ...makeUserInfoSimpleProps(),
+  ...makeInfoPropsSimple(),
+  ...makeUserInfoPropsSimple(),
 });
 
 const avatarHref = computed(() => {

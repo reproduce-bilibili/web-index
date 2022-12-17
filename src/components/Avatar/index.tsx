@@ -1,5 +1,5 @@
 import { makePanelProps } from '@/composables/panel';
-import { makeUserInfoSimpleProps } from '@/composables/userInfo';
+import { makeUserInfoPropsSimple } from '@/composables/userInfo';
 import { genericComponent } from '@/utils/defineComponent';
 import { useRender } from '@/utils/useRender';
 import { computed, PropType } from 'vue';
@@ -17,7 +17,7 @@ export const Avatar = genericComponent()({
     ...makePanelProps({
       title: undefined,
     }),
-    ...makeUserInfoSimpleProps(),
+    ...makeUserInfoPropsSimple(),
     showTag: {
       type: [Boolean, String] as PropType<true | false | keyof typeof tagMap>,
       default: false,

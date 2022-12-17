@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import ButtonViewAll from '../../../components/ButtonViewAll.vue';
+import IconArrow from '@/components/Icon/Arrow.vue';
 </script>
 
 <template>

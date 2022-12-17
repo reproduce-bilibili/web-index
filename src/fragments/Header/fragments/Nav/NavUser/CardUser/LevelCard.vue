@@ -2,7 +2,7 @@
 import { propsFactory } from '@/utils/propsFactory';
 import { PropType } from 'vue';
 import Graph from '@/components/Graph/index.vue';
-import { makeUserInfoProps } from '@/composables/userInfo';
+import { makeUserInfoPropsDefault } from '@/composables/userInfo';
 import IconArrow from '@/components/Icon/Arrow.vue';
 
 defineProps({
@@ -16,7 +16,7 @@ defineProps({
       >,
     },
   })(),
-  ...makeUserInfoProps(),
+  ...makeUserInfoPropsDefault(),
 });
 </script>
 

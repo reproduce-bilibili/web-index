@@ -1,16 +1,7 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import TagCover from '../../../components/ListItem/TagCover.vue';
+</script>
 
 <template>
-  <div class="cover-tag"><slot /></div>
+  <TagCover><slot /></TagCover>
 </template>
-
-<style lang="scss" scoped>
-.cover-tag {
-  display: inline-block;
-  color: #fff;
-  background-color: rgba($color: #000000, $alpha: 0.4);
-  line-height: 16px;
-  border-radius: 2px;
-  font-size: var(--fs0);
-}
-</style>

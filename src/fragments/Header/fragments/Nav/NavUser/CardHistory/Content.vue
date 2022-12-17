@@ -3,7 +3,7 @@ import Item from './Item.vue';
 import ButtonViewAll from '../../components/ButtonViewAll.vue';
 import DateTitle from './components/DateTitle.vue';
 import { computed } from 'vue';
-import { makeItemTypeProps } from '../../composables/ItemType';
+import { makeItemTypeProps } from '@/composables/itemInfo';
 
 const props = defineProps({
   ...makeItemTypeProps(),

@@ -49,13 +49,13 @@ export interface UserInfoSimpleProps {
   userInfo: UserInfoSimple;
 }
 
-export const makeUserInfoSimpleProps = propsFactory({
+export const makeUserInfoPropsSimple = propsFactory({
   userInfo: {
     type: Object as PropType<UserInfoSimple>,
   },
 });
 
-export const makeUserInfoProps = propsFactory({
+export const makeUserInfoPropsDefault = propsFactory({
   userInfo: {
     type: Object as PropType<UserInfo>,
     default() {

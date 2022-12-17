@@ -1,19 +1,19 @@
 <script lang="ts" setup>
 import { makeImgProps } from '@/composables/img';
 import { computed, PropType } from 'vue';
-import { makeInfoProps } from './components/Info.vue';
 import Img from './components/Img.vue';
 import Info from './components/Info.vue';
 import Tag from './components/Tag.vue';
 import Progress from '@/components/Progress.vue';
-import ListItemVue from '../../components/ListItem.vue';
+import ListItem from '../../components/ListItem/index.vue';
 import dayjs from 'dayjs';
-import { makeItemTypeProps } from '../../composables/ItemType';
+import { makeItemTypeProps } from '@/composables/itemInfo';
+import { makeInfoPropsDefault } from '@/composables/itemInfo';
 
 const props = defineProps({
   ...makeItemTypeProps(),
   ...makeImgProps(),
-  ...makeInfoProps(),
+  ...makeInfoPropsDefault(),
   isActive: Boolean,
   timeRange: {
     type: Array as unknown as PropType<[cur: string, prev: string]>,
@@ -37,7 +37,7 @@ const getDuration = (time: string) => {
 </script>
 
 <template>
-  <ListItemVue class="history-item video-container">
+  <ListItem class="history-item video-container">
     <Img v-if="putImgLeft" class="img--left" :src="src">
       <Tag v-if="type === 'video'" class="time"
         ><span class="text">{{ timeRange[0] }}/{{ timeRange[1] }}</span></Tag
@@ -63,7 +63,7 @@ const getDuration = (time: string) => {
       :date="date"
       :name="name" />
     <Img v-if="!putImgLeft" class="img--right" :src="src" />
-  </ListItemVue>
+  </ListItem>
 </template>
 
 <style lang="scss" scoped>

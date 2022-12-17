@@ -3,14 +3,14 @@ import { computed, PropType } from 'vue';
 import Graph from '@/components/Graph/index.vue';
 import DropDownMenu from '../../components/DropDownMenu.vue';
 import Level from './Level.vue';
-import { makeUserInfoProps } from '@/composables/userInfo';
+import { makeUserInfoPropsDefault } from '@/composables/userInfo';
 import Count from './Count.vue';
 import LevelCard from './LevelCard.vue';
 import LinkList from './LinkList.vue';
 import LinkItem from './LinkItem.vue';
 import IconLogout from '@/components/Icon/Logout.vue';
 
-const { userInfo } = defineProps({ ...makeUserInfoProps() });
+const { userInfo } = defineProps({ ...makeUserInfoPropsDefault() });
 
 const userSpaceLink = computed(
   () => `https://space.bilibili.com/${userInfo.uid}`,
