@@ -59,3 +59,31 @@ export const isVisible = (target: Element) => {
   }
   return res;
 };
+
+export function addEventListeners<
+  T extends HTMLElement,
+  E extends keyof HTMLElementEventMap,
+>(target: T, event: E[], cb: (ev: HTMLElementEventMap[E]) => void): void;
+export function addEventListeners<
+  T extends HTMLElement,
+  E extends keyof HTMLElementEventMap,
+>(target: T, event: E, cb: (ev: HTMLElementEventMap[E]) => void): void {
+  const _event = (Array.isArray(event) ? event : [event]) as E[];
+  _event.forEach((e) => {
+    target.addEventListener(e, cb);
+  });
+}
+
+export function removeEventListeners<
+  T extends HTMLElement,
+  E extends keyof HTMLElementEventMap,
+>(target: T, event: E[], cb: (ev: HTMLElementEventMap[E]) => void): void;
+export function removeEventListeners<
+  T extends HTMLElement,
+  E extends keyof HTMLElementEventMap,
+>(target: T, event: E, cb: (ev: HTMLElementEventMap[E]) => void): void {
+  const _event = (Array.isArray(event) ? event : [event]) as E[];
+  _event.forEach((e) => {
+    target.removeEventListener(e, cb);
+  });
+}
