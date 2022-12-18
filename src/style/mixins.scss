@@ -6,7 +6,7 @@
 
 @mixin line-clamp($line: 2) {
   word-break: break-all;
-  @if $line < 1 {
+  @if $line < 2 {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
