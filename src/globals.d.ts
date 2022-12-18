@@ -9,7 +9,7 @@ declare global {
   interface Element {
     __b_mutation_observer__?: MutationObserver
     __b_resize_observer__?: ResizeObserver
-
+    __b_click_outside_handler__?: any
   }
 
   namespace JSX {
