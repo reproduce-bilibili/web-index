@@ -1,6 +1,7 @@
 import { isVisible, mutableShallowCopy, toRaws } from '@/utils/helpers';
-import { entries, throttle } from 'lodash';
+import { throttle } from 'lodash';
 import { computed, onBeforeUnmount, Ref, ref, toRaw, watch } from 'vue';
+import { useRaf } from './requestAnimationFrame';
 
 export type Options<T> = T & { targetRef?: Ref<Element | undefined> };
 
@@ -110,53 +111,16 @@ export const useRectObserver = (
     immediate: true,
   });
 
-  const stopFlag = ref(false);
-  let aid: number | null = null;
-
-  function _stop() {
-    stopFlag.value = true;
-  }
-
-  function run() {
-    console.log('run')
-    aid = window.requestAnimationFrame(() => {
-      targetRef.value && (visible.value = isVisible(targetRef.value));
-      if (runAble.value && !stopFlag.value && controlFlag.value) {
-        if (rect.value) {
-          mutableShallowCopy(
-            rect.value,
-            targetRef.value!.getBoundingClientRect(),
-          );
-        } else {
-          rect.value = mutableShallowCopy(
-            {},
-            targetRef.value!.getBoundingClientRect(),
-          );
-        }
-        aid = window.requestAnimationFrame(run);
-      } else if (aid) window.cancelAnimationFrame(aid);
-    });
-  }
-
-  function _start() {
-    stopFlag.value = false;
-    run();
-  }
-
-  const runAble = computed(() => {
-    return targetRef.value && visible.value;
+  const { pause, resume, isActive } = useRaf(() => {
+    if (rect.value) {
+      mutableShallowCopy(rect.value, targetRef.value!.getBoundingClientRect());
+    } else {
+      rect.value = mutableShallowCopy(
+        {},
+        targetRef.value!.getBoundingClientRect(),
+      );
+    }
   });
-  watch(runAble, (v) => (v ? _start() : _stop()), {
-    immediate: true,
-    flush: 'pre',
-  });
-
-  const controlFlag = ref(true);
-  const start = () => {
-    controlFlag.value = true;
-    run();
-  };
-  const stop = () => (controlFlag.value = false);
 
   const rect = ref<DOMRect>();
   const resData = computed(() =>
@@ -169,8 +133,7 @@ export const useRectObserver = (
     (res) => {
       // 确保 visible 是最新的
       setTimeout(() => {
-        if (res && visible.value)
-          cb?.(toRaws(res));
+        if (res && visible.value) cb?.(toRaws(res));
       });
     },
     {
@@ -180,13 +143,12 @@ export const useRectObserver = (
     },
   );
 
-  onBeforeUnmount(_stop);
-
   return {
     targetRef,
     rect,
-    stop,
-    start,
+    isActive,
+    resume,
+    pause,
     visible,
   };
 };

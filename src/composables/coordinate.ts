@@ -40,7 +40,10 @@ type UseCoordinateOptions = Options<{}>;
 type UseCoordinateReturns = {
   coordinate: ComputedRef<Coordinate | undefined>;
   targetRef: Ref<Element | undefined>;
-} & Pick<ReturnType<typeof useRectObserver>, 'start' | 'stop' | 'visible'>;
+} & Pick<
+  ReturnType<typeof useRectObserver>,
+  'pause' | 'resume' | 'visible' | 'isActive'
+>;
 
 export const getCoordinate = (
   target: Element | DOMRect,
@@ -78,9 +81,12 @@ export const useCoordinate = (
   cb?: UseCoordinateCallback,
   options?: UseCoordinateOptions,
 ): UseCoordinateReturns => {
-  const { targetRef, rect, stop, start, visible } = useRectObserver(undefined, {
-    targetRef: options?.targetRef,
-  });
+  const { targetRef, rect, pause, resume, visible, isActive } = useRectObserver(
+    undefined,
+    {
+      targetRef: options?.targetRef,
+    },
+  );
   const { windowSize } = useWindowSizeObserver();
   const coordinate = computed(() => {
     if (!rect.value) return undefined;
@@ -94,8 +100,9 @@ export const useCoordinate = (
   return {
     coordinate,
     targetRef,
-    start,
-    stop,
+    resume,
+    pause,
+    isActive,
     visible,
   };
 };
