@@ -18,7 +18,7 @@ export default genericComponent()({
       <Tag.value
         href={props.href}
         target={isLink.value ? props.target : undefined}
-        class="graph">
+        class="b-graph">
         {slots.default?.()}
       </Tag.value>
     ));
@@ -26,12 +26,8 @@ export default genericComponent()({
 });
 </script>
 
-<style lang="scss" scoped>
-a.graph {
+<style lang="scss">
+a.b-graph {
   text-decoration: none;
-}
-.graph {
-  // border-radius: var(--radius2);
-  background-color: transparent;
 }
 </style>
