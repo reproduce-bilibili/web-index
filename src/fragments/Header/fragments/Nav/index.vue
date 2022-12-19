@@ -27,12 +27,13 @@ useProvideUser(ref(mockUser));
   justify-content: space-between;
   color: #ffffff;
   & > * {
-    z-index: 11;
+    z-index: 20;
   }
   &__right, &__left {
     align-self: stretch;
   }
   &__search {
+    z-index: 10;
     flex-grow: 1;
     margin-left: 30px;
     margin-right: 12px;
