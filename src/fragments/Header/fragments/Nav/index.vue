@@ -3,12 +3,15 @@ import { useProvideUser, mockUser } from '@/composables/userInfo';
 import { ref } from 'vue';
 import NavSite from './NavSite/index.vue';
 import NavUser from './NavUser/index.vue';
+import Search from './Search/index.vue';
+
 useProvideUser(ref(mockUser));
 </script>
 
 <template>
   <div class="nav">
     <NavSite class="nav__left" />
+    <Search class="nav__search" />
     <NavUser class="nav__right" />
   </div>
 </template>
@@ -18,10 +21,20 @@ useProvideUser(ref(mockUser));
 
 .nav {
   display: flex;
+  align-items: center;
   padding: 0 24px;
   justify-content: space-between;
   & > * {
     z-index: 11;
+  }
+  &__right, &__left {
+    align-self: stretch;
+  }
+  &__search {
+    flex-grow: 1;
+    margin-left: 30px;
+    margin-right: 12px;
+    max-width: 500px;
   }
 }
 

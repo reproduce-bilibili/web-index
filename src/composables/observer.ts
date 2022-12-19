@@ -39,13 +39,15 @@ export const useMutationObserver = (
 };
 
 export const useResizeObserver = (
-  cb: ResizeObserverCallback,
+  cb?: ResizeObserverCallback,
   options?: Options<ResizeObserverOptions>,
 ) => {
   const targetRef = options?.targetRef || ref<Element>();
+  const entry = ref<ResizeObserverEntry | undefined>();
 
   let observer: ResizeObserver = new ResizeObserver((...args) => {
-    cb(...args);
+    entry.value = args[0][0] || entry.value;
+    cb?.(...args);
   });
 
   const beforeUnmount = () => {
@@ -71,6 +73,7 @@ export const useResizeObserver = (
 
   return {
     targetRef,
+    entry,
   };
 };
 
