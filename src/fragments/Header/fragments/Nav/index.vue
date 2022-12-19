@@ -25,6 +25,7 @@ useProvideUser(ref(mockUser));
   align-items: center;
   padding: 0 24px;
   justify-content: space-between;
+  color: #ffffff;
   & > * {
     z-index: 11;
   }

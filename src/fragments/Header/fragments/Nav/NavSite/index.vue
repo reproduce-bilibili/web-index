@@ -53,7 +53,7 @@ import EntryDownloadClient from './EntryDownloadClient.vue';
     line-height: var(--h-header);
   }
   overflow: hidden;
-  color: var(--text1);
+  color: inherit;
   font-size: var(--fs2);
   .nav--site__item {
     list-style-type: none;
