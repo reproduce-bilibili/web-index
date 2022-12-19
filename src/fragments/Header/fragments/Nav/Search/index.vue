@@ -108,7 +108,8 @@ const handleHotItemClick = (text: string) => {
     line-height: $height - 2 * $border-size;
     border: 1px solid var(--line_regular);
     background-color: var(--graph_bg_regular);
-    transition: background-color 0.3s;
+    transition: background-color, opacity 0.3s;
+    opacity: .9;
     &__content {
       @include flex-center();
       justify-content: unset;
@@ -153,6 +154,7 @@ const handleHotItemClick = (text: string) => {
   }
   .nav-search-form:hover {
     background-color: #fff;
+    opacity: 1;
   }
   .nav-search-expend-content {
     width: 100%;
@@ -172,6 +174,7 @@ const handleHotItemClick = (text: string) => {
     background-color: #fff;
     border-bottom: 0;
     border-radius: 8px 8px 0px 0px;
+    opacity: 1;
     &__content {
       background-color: var(--graph_bg_thick);
     }
