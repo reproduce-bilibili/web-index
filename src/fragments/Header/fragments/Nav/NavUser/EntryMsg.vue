@@ -3,10 +3,11 @@ import ButtonNavIconTop from '@/fragments/Header/components/ButtonNavIconTop.vue
 import useI18nLocal from '@/hooks/useI18nLocal';
 import i18nOptions from '@/fragments/Header/i18n';
 import Msg from '@/components/Icon/Msg.vue';
-import BadgeCount from '../components/BadgeCount.vue';
+import Badge from '@/component/BadgeCount.vue';
 import DropDown from '../components/DropDown.vue';
 import MsgMenu from './MsgMenu/index.vue';
 import { computed, ref } from 'vue';
+import BadgeCount from '../components/BadgeCount.vue';
 
 const { t } = useI18nLocal(i18nOptions);
 
@@ -43,13 +44,12 @@ const totalCount = computed(() =>
 
 <template>
   <DropDown>
-    <BadgeCount :count="totalCount">
-      <ButtonNavIconTop :text="t('msg')">
-        <template #icon="data">
-          <Msg v-bind="data" />
-        </template>
-      </ButtonNavIconTop>
-    </BadgeCount>
+    <ButtonNavIconTop :text="t('msg')">
+      <template #icon="data">
+        <Msg v-bind="data" />
+      </template>
+    </ButtonNavIconTop>
+    <BadgeCount class="nav-badge-count" :count="totalCount" />
     <template #popper>
       <MsgMenu :menu-item-list="data" />
     </template>

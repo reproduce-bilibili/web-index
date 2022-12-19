@@ -17,10 +17,10 @@ import EntryUser from './EntryUser.vue';
     <li class="nav--user__item icon">
       <EntryVip />
     </li>
-    <li class="nav--user__item icon">
+    <li class="nav--user__item icon has-badge">
       <EntryMsg />
     </li>
-    <li class="nav--user__item icon">
+    <li class="nav--user__item icon has-badge">
       <EntryTrend />
     </li>
     <li class="nav--user__item icon">
@@ -38,23 +38,78 @@ import EntryUser from './EntryUser.vue';
   </ul>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
+@use '@/style/break-point' as * with($key: nav);
+
 .nav--user {
   display: flex;
   align-items: center;
   &__item {
     list-style: none;
     height: 100%;
+    .nav-badge-count {
+      position: absolute;
+      top: 6px;
+      left: 26px;
+    }
     & > * {
       height: 100%;
+      min-width: 50px;
       display: flex;
       align-items: center;
+      justify-content: center;
     }
     &.user {
       margin-right: 10px;
     }
     &__upload {
       margin-left: var(--m4);
+    }
+    .entry--upload {
+      width: 90px;
+    }
+  }
+}
+@include mq($until: lg) {
+  .nav--user {
+    &__item {
+      & > * {
+        min-width: 25px;
+        margin: 0 5px;
+      }
+      .nav-badge-count {
+        left: 12px;
+      }
+    }
+    .user {
+      margin-right: 0;
+    }
+    &__item.has-badge {
+      margin: 0 5px;
+    }
+  }
+}
+@include mq($until: md) {
+  .entry--icon-top__text,
+  .entry--upload__text {
+    display: none;
+  }
+  .nav--user {
+    &__item {
+      & > * {
+        min-width: 25px;
+        margin: 0 5px;
+      }
+      .nav-badge-count {
+        top: 14px;
+        left: 10px;
+      }
+      .entry--upload {
+        width: 34px;
+      }
+    }
+    &__item.has-badge {
+      margin: 0 5px;
     }
   }
 }

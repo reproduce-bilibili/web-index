@@ -1,32 +1,13 @@
 <script lang="ts" setup>
-import { computed } from 'vue';
-
-const props = defineProps({
-  count: Number,
-  offset: {
-    type: Object,
-    default: {
-      right: '-0.1em',
-      top: '-0.2em',
-    },
-  },
-  max: {
-    type: Number,
-    default: 99,
-  },
+defineProps({
+  content: [String, Number],
 });
-
-const _count = computed(() =>
-  props.count
-    ? props.count > props.max
-      ? `${props.max}+`
-      : props.count
-    : undefined,
-);
 </script>
 
 <template>
-  <sup class="b-badge" :style="offset"> {{ _count }} </sup>
+  <sup class="b-badge">
+    <slot>{{ content }}</slot>
+  </sup>
 </template>
 
 <style lang="scss">

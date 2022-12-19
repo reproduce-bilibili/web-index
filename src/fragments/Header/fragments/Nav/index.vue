@@ -18,6 +18,7 @@ useProvideUser(ref(mockUser));
 
 <style lang="scss">
 @use '@/style/mixins.scss' as *;
+@use '@/style/break-point' as * with($key: nav);
 
 .nav {
   display: flex;
@@ -35,6 +36,14 @@ useProvideUser(ref(mockUser));
     margin-left: 30px;
     margin-right: 12px;
     max-width: 500px;
+  }
+}
+
+@include mq($until: lg) {
+  .nav {
+    &__search {
+      margin: 0;
+    }
   }
 }
 

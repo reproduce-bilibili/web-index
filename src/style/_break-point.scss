@@ -1,0 +1,13 @@
+@use 'sass:map';
+
+$breakpoints-map: (
+  nav: (
+    sm: 1100px,
+    md: 1279px,
+    lg: 1366px,
+  ),
+);
+
+$key: nav !default;
+
+@forward 'sass-mq/mq' with ($breakpoints: map.get($breakpoints-map, $key));

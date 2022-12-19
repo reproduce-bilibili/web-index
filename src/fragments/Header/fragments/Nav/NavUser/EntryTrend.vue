@@ -12,13 +12,12 @@ const { t } = useI18nLocal(i18nOptions);
 
 <template>
   <DropDown>
-    <BadgeCount :count="4">
-      <ButtonNavIconTop :text="t('trend')">
-        <template #icon="data">
-          <Trend v-bind="data" />
-        </template>
-      </ButtonNavIconTop>
-    </BadgeCount>
+    <ButtonNavIconTop :text="t('trend')">
+      <template #icon="data">
+        <Trend v-bind="data" />
+      </template>
+    </ButtonNavIconTop>
+    <BadgeCount class="nav-badge-count" :count="4" />
     <template #popper>
       <CardTrend />
     </template>

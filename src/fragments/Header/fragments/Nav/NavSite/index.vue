@@ -34,7 +34,7 @@ import EntryDownloadClient from './EntryDownloadClient.vue';
     <li class="nav--site__item">
       <EntryMatch />
     </li>
-    <li class="nav--site__item">
+    <li class="nav--site__item bls">
       <EntryBls />
     </li>
     <li class="nav--site__item">
@@ -44,6 +44,7 @@ import EntryDownloadClient from './EntryDownloadClient.vue';
 </template>
 
 <style lang="scss" scoped>
+@use '@/style/break-point' as * with($key: nav);
 .nav--site {
   display: flex;
   &,
@@ -58,6 +59,22 @@ import EntryDownloadClient from './EntryDownloadClient.vue';
     list-style-type: none;
     margin-right: var(--m6);
     flex-shrink: 0;
+  }
+}
+
+@include mq($until: lg) {
+  .nav--site {
+    .nav--site__item {
+      margin-right: 10px;
+    }
+  }
+}
+
+@include mq($until: md) {
+  .nav--site {
+    .nav--site__item.bls {
+      display: none;
+    }
   }
 }
 </style>

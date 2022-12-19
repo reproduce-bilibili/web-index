@@ -13,7 +13,7 @@ const { t } = useI18nLocal(i18nOptions);
   <DropDown>
     <ButtonNavBase class="entry--upload">
       <Upload class="entry--upload__icon" />
-      <span>{{ t('contribute') }}</span>
+      <span class="entry--upload__text">{{ t('contribute') }}</span>
     </ButtonNavBase>
     <template #popper>
       <UploadMenu />
@@ -28,7 +28,6 @@ const { t } = useI18nLocal(i18nOptions);
   justify-content: center;
   background-color: #fb7299;
   color: #fff;
-  width: 90px;
   height: 34px;
   border-radius: var(--radius2);
   text-align: center;
@@ -37,8 +36,8 @@ const { t } = useI18nLocal(i18nOptions);
   &:hover {
     background-color: #fc8bab;
   }
-  &__icon {
-    margin-right: 5px;
+  &__text {
+    margin-left: 5px;
   }
 }
 </style>

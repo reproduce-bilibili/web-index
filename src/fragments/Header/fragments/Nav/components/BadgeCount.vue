@@ -1,9 +1,26 @@
 <script lang="ts" setup>
-import BadgeWrapper from '@/components/Badge/BadgeWrapper.vue';
+import Badge from '@/components/Badge/index.vue';
+import { computed } from 'vue';
+
+const props = defineProps({
+  count: Number,
+  max: {
+    type: Number,
+    default: 99,
+  },
+});
+
+const _count = computed(() =>
+  props.count
+    ? props.count > props.max
+      ? `${props.max}+`
+      : props.count
+    : undefined,
+);
 </script>
 
 <template>
-  <BadgeWrapper :offset="{ left: '26px', top: '-6px' }" v-bind="$attrs">
-    <slot />
-  </BadgeWrapper>
+  <Badge
+    ><slot>{{ _count }}</slot></Badge
+  >
 </template>

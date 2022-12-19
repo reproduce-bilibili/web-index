@@ -25,7 +25,7 @@ defineProps({
   vertical-align: middle;
   justify-content: center;
   align-items: center;
-  min-width: 50px;
+  // min-width: 50px;
   &:hover {
     :slotted(.entry--icon-top__icon) {
       animation: jump 0.3s;
@@ -37,6 +37,7 @@ defineProps({
     height: 20px;
   }
   .entry--icon-top__text {
+    word-break: keep-all;
     font-size: var(--fs1);
   }
 }

@@ -1,5 +1,6 @@
 <template>
   <VDropdown
+    class="nav-dropdown"
     theme="header-card-bottom"
     container=".nav"
     v-bind="$attrs">
@@ -8,3 +9,9 @@
     </template>
   </VDropdown>
 </template>
+
+<style lang="scss" scoped>
+.nav-dropdown {
+  position: relative;
+}
+</style>
