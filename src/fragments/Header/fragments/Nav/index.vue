@@ -35,6 +35,7 @@ useProvideUser(ref(mockUser));
   &__search {
     z-index: 10;
     flex-grow: 1;
+    flex-basis: 0;
     margin-left: 30px;
     margin-right: 12px;
     max-width: 500px;

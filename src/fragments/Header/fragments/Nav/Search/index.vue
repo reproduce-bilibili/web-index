@@ -160,7 +160,7 @@ const handleHotItemClick = (text: string) => {
     width: 100%;
     padding: 13px 0 16px;
     position: absolute;
-    bottom: 0;
+    bottom: 0.5px;
     transform: translateY(100%);
     border: 1px solid var(--line_regular);
     border-top: 0;
