@@ -77,6 +77,45 @@ export const useResizeObserver = (
   };
 };
 
+export const useIntersectionObserver = (
+  cb?: IntersectionObserverCallback,
+  options: Options<IntersectionObserverInit> = {},
+) => {
+  const { targetRef = ref() } = options;
+  const entry = ref<IntersectionObserverEntry | undefined>();
+
+  let observer = new IntersectionObserver((...args) => {
+    entry.value = args[0][0] || entry.value;
+    cb?.(...args);
+  });
+
+  const beforeUnmount = () => {
+    observer.disconnect();
+    if (targetRef.value) {
+      delete targetRef.value.__b_resize_observer__;
+    }
+  };
+
+  onBeforeUnmount(beforeUnmount);
+
+  watch(
+    targetRef,
+    (v, ov) => {
+      if (ov) observer.unobserve(ov);
+      if (v) {
+        v.__b_resize_observer__ = observer;
+        observer.observe(v);
+      }
+    },
+    { immediate: true },
+  );
+
+  return {
+    targetRef,
+    entry,
+  };
+};
+
 export type UseRectObserverCallBack = (v: {
   rect: DOMRect;
   el: Element;

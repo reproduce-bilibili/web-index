@@ -1,15 +1,17 @@
 <script lang="ts" setup>
 import { useProvideUser, mockUser } from '@/composables/userInfo';
 import { ref } from 'vue';
+import { useNavState } from '../../composables/nav';
 import NavSite from './NavSite/index.vue';
 import NavUser from './NavUser/index.vue';
 import Search from './Search/index.vue';
 
 useProvideUser(ref(mockUser));
+const navState = useNavState();
 </script>
 
 <template>
-  <div class="nav">
+  <div :class="['nav', { 'nav--fixed': navState?.fixed }]">
     <NavSite class="nav__left" />
     <Search class="nav__search" />
     <NavUser class="nav__right" />
@@ -29,16 +31,31 @@ useProvideUser(ref(mockUser));
   & > * {
     z-index: 20;
   }
-  &__right, &__left {
+  &__right,
+  &__left {
     align-self: stretch;
+  }
+  &__right {
+    margin-left: 12px;
+  }
+  &__left {
+    margin-right: 10px;
   }
   &__search {
     z-index: 10;
     flex-grow: 1;
     flex-basis: 0;
-    margin-left: 30px;
-    margin-right: 12px;
     max-width: 500px;
+  }
+  min-width: 1080px;
+}
+
+.nav--fixed {
+  background-color: var(--bg1_float);
+  color: var(--text1);
+  box-shadow: inset 0 -1px #f1f2f3;
+  .entry--icon-top__text {
+    color: var(--text2);
   }
 }
 
@@ -47,6 +64,11 @@ useProvideUser(ref(mockUser));
     &__search {
       margin: 0;
     }
+  }
+  .nav.nav--fixed {
+    // .nav__search {
+    //   margin: 0 16px;
+    // }
   }
 }
 

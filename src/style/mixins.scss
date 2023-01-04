@@ -21,7 +21,7 @@
 
 @mixin create-float-vue-theme($theme-name, $animation) {
   .v-popper--theme-#{$theme-name} {
-    transition-duration: 0.3s !important;
+    // transition-duration: 0.3s;
     z-index: 10 !important;
     .v-popper__wrapper {
       // padding-top: 8px;

@@ -1,3 +1,4 @@
+import { createSharedComposable } from '@/utils/createShareComposable';
 import type { Ref } from 'vue';
 import { ref } from 'vue';
 import { useDomEventListener } from './domEventListener';
@@ -16,7 +17,7 @@ interface Meta {
 }
 
 export const useScroll = <T extends HTMLElement>(
-  options: UseScrollOptions<T>,
+  options: UseScrollOptions<T> = {},
 ) => {
   const { target = ref(), cb, boundary = 2, onBottom, onTop } = options;
 
@@ -54,3 +55,33 @@ export const useScroll = <T extends HTMLElement>(
 
   return { meta, target, ...listenerReturns };
 };
+
+const _useWindowScroll = <T>(
+  options: Omit<UseScrollOptions<T>, 'target' | 'cb'> & {
+    cb?: Window['onscroll'];
+  } = {},
+) => {
+  const meta = ref<null | Meta>(null);
+
+  function _cb(this: GlobalEventHandlers, ev: Event) {
+    const _target = document.documentElement;
+
+    const top = _target.scrollTop;
+    const bottom =
+      _target.scrollHeight - _target.scrollTop - _target.clientHeight;
+
+    if (!meta.value) {
+      meta.value = { top, bottom };
+    } else {
+      meta.value.top = top;
+      meta.value.bottom = bottom;
+    }
+    options.cb?.call(this, ev);
+  }
+
+  window.onscroll = _cb;
+
+  return { meta };
+};
+
+export const useWindowScroll = createSharedComposable(_useWindowScroll);

@@ -12,6 +12,8 @@ import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import duration from 'dayjs/plugin/duration';
 
+import 'virtual:svg-icons-register';
+
 dayjs.extend(customParseFormat);
 dayjs.extend(duration);
 

@@ -8,36 +8,42 @@ import EntryComic from './EntryManga.vue';
 import EntryMatch from './EntryMatch.vue';
 import EntryBls from './EntryBls.vue';
 import EntryDownloadClient from './EntryDownloadClient.vue';
+import EntryHomeWithMenu from './EntryHomeWithMenu.vue';
+import { useNavState } from '@/fragments/Header/composables/nav';
 
+const navState = useNavState();
 </script>
 
 <template>
-  <ul class="nav--site">
-    <li class="nav--site__item">
+  <ul :class="['nav__site', { 'nav__site--fixed': navState?.fixed }]">
+    <li v-show="navState?.fixed" class="nav__site__item logo">
+      <EntryHomeWithMenu />
+    </li>
+    <li v-show="!navState?.fixed" class="nav__site__item">
       <EntryHome />
     </li>
-    <li class="nav--site__item">
+    <li class="nav__site__item">
       <EntryAnime />
     </li>
-    <li class="nav--site__item">
+    <li class="nav__site__item">
       <EntryLive />
     </li>
-    <li class="nav--site__item">
+    <li class="nav__site__item">
       <EntryGameCenter />
     </li>
-    <li class="nav--site__item">
+    <li class="nav__site__item">
       <EntryVipShop />
     </li>
-    <li class="nav--site__item">
+    <li class="nav__site__item">
       <EntryComic />
     </li>
-    <li class="nav--site__item">
+    <li class="nav__site__item">
       <EntryMatch />
     </li>
-    <li class="nav--site__item bls">
+    <li class="nav__site__item bls">
       <EntryBls />
     </li>
-    <li class="nav--site__item">
+    <li class="nav__site__item download-client">
       <EntryDownloadClient />
     </li>
   </ul>
@@ -45,7 +51,7 @@ import EntryDownloadClient from './EntryDownloadClient.vue';
 
 <style lang="scss" scoped>
 @use '@/style/break-point' as * with($key: nav);
-.nav--site {
+.nav__site {
   display: flex;
   &,
   & :deep(.entry--default) {
@@ -55,7 +61,7 @@ import EntryDownloadClient from './EntryDownloadClient.vue';
   overflow: hidden;
   color: inherit;
   font-size: var(--fs2);
-  .nav--site__item {
+  .nav__site__item {
     list-style-type: none;
     margin-right: var(--m6);
     flex-shrink: 0;
@@ -63,16 +69,23 @@ import EntryDownloadClient from './EntryDownloadClient.vue';
 }
 
 @include mq($until: lg) {
-  .nav--site {
-    .nav--site__item {
+  .nav__site {
+    .nav__site__item {
       margin-right: 10px;
     }
   }
 }
 
 @include mq($until: md) {
-  .nav--site {
-    .nav--site__item.bls {
+  .nav__site {
+    .nav__site__item.bls {
+      display: none;
+    }
+  }
+}
+@include mq($until: md) {
+  .nav__site--fixed {
+    .nav__site__item.download-client {
       display: none;
     }
   }
