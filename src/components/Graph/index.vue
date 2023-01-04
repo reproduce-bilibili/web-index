@@ -18,7 +18,7 @@ export default genericComponent()({
       <Tag.value
         href={props.href}
         target={isLink.value ? props.target : undefined}
-        class="b-graph">
+        class={['b-graph']}>
         {slots.default?.()}
       </Tag.value>
     ));
@@ -29,5 +29,6 @@ export default genericComponent()({
 <style lang="scss">
 a.b-graph {
   text-decoration: none;
+  color: currentColor;
 }
 </style>
