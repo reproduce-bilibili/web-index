@@ -31,5 +31,6 @@ export default defineConfig({
       ...createProxy('i2.hdslb.com'),
       ...createProxy('i1.hdslb.com'),
     },
+    port: 23333,
   },
 });
