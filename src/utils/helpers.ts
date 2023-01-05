@@ -87,3 +87,15 @@ export function removeEventListeners<
     target.removeEventListener(e, cb);
   });
 }
+
+export const splitArrByCount = <T extends any>(
+  arr: T[],
+  count: number,
+): Array<Array<T>> => {
+  if (count === 1 || arr.length <= 1) return [arr.slice()];
+  const res: Array<Array<T>> = [];
+  for (let i = 0; i < arr.length; i += count) {
+    res.push(arr.slice(i, i + count));
+  }
+  return res;
+};

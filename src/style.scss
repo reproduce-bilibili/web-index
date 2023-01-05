@@ -1,3 +1,6 @@
+@use '@/style/break-point' as * with($key: nav);
+@use '@/style/mixins' as *;
+
 :root {
   --h-header: 64px;
   --Wh0: #ffffff;
@@ -24,6 +27,7 @@
   --graph_weak: var(--Ga3);
   --graph_icon: var(--Ga7);
   --line_regular: var(--Ga2);
+  --line_light: var(--Ga1_s);
   --m0: 8px;
   --m1: 10px;
   --m2: 12px;
@@ -49,6 +53,15 @@
   --link_blue: var(--Lb5);
   --brand_blue: var(--Lb5);
   --brand_pink: var(--Pi5);
+  --layout_padding: 140px;
+  --layout_content_max_width: 2560px;
+  --layout_max_width: calc(1980px + 2 * var(--layout_padding));
+}
+
+@include mq($until: lg) {
+  :root {
+    --layout_padding: 140px;
+  }
 }
 
 :root {
@@ -66,6 +79,7 @@ body *:after {
 body {
   min-width: 1080px;
   min-height: 120vh;
+  background-color: var(--graph_bg_regular);
 }
 
 h1,
@@ -169,3 +183,36 @@ td {
   height: 100%;
   object-fit: inherit;
 }
+
+/*
+ * float-vue-theme
+ */
+@keyframes topToBottom {
+  0% {
+    top: calc(-1 * var(--m1));
+  }
+  100% {
+    top: 0;
+  }
+}
+@include create-float-vue-theme(header-card-bottom, topToBottom);
+
+@keyframes leftToRight {
+  0% {
+    left: calc(-1 * var(--m1));
+  }
+  100% {
+    left: 0;
+  }
+}
+@include create-float-vue-theme(header-card-right, leftToRight);
+
+@keyframes bottomToTop {
+  0% {
+    top: calc(1 * var(--m1));
+  }
+  100% {
+    top: 0;
+  }
+}
+@include create-float-vue-theme(header-card-top, bottomToTop);

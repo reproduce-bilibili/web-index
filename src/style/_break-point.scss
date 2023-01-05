@@ -6,6 +6,12 @@ $breakpoints-map: (
     md: 1279px,
     lg: 1366px,
   ),
+  channel: (
+    sm: 1100px,
+    md: 1367px,
+    lg: 1700px,
+    xl: 2200px,
+  )
 );
 
 $key: nav !default;

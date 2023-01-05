@@ -29,6 +29,6 @@ export default genericComponent()({
 <style lang="scss">
 a.b-graph {
   text-decoration: none;
-  color: currentColor;
+  // color: currentColor;
 }
 </style>

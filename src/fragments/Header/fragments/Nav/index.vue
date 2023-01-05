@@ -54,6 +54,7 @@ const navState = useNavState();
   background-color: var(--bg1_float);
   color: var(--text1);
   box-shadow: inset 0 -1px #f1f2f3;
+  max-width: var(--layout_content_max_width);
   .entry--icon-top__text {
     color: var(--text2);
   }
@@ -65,30 +66,5 @@ const navState = useNavState();
       margin: 0;
     }
   }
-  .nav.nav--fixed {
-    // .nav__search {
-    //   margin: 0 16px;
-    // }
-  }
 }
-
-@keyframes topToBottom {
-  0% {
-    top: calc(-1 * var(--m4));
-  }
-  100% {
-    top: 0;
-  }
-}
-@include create-float-vue-theme(header-card-bottom, topToBottom);
-
-@keyframes leftToRight {
-  0% {
-    left: calc(-1 * var(--m4));
-  }
-  100% {
-    left: 0;
-  }
-}
-@include create-float-vue-theme(header-card-right, leftToRight);
 </style>

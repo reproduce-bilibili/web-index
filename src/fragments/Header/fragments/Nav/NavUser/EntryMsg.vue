@@ -3,7 +3,6 @@ import ButtonNavIconTop from '@/fragments/Header/components/ButtonNavIconTop.vue
 import useI18nLocal from '@/hooks/useI18nLocal';
 import i18nOptions from '@/fragments/Header/i18n';
 import Msg from '@/components/Icon/Msg.vue';
-import Badge from '@/component/BadgeCount.vue';
 import DropDown from '../components/DropDown.vue';
 import MsgMenu from './MsgMenu/index.vue';
 import { computed, ref } from 'vue';
