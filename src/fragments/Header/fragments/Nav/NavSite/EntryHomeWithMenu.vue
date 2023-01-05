@@ -36,6 +36,7 @@ const show = ref(false);
     }
     .text {
       margin-right: 5px;
+      color: var(--text1);
     }
     .arrow {
       transition: transform 0.3s;
