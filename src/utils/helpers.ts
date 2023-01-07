@@ -99,3 +99,5 @@ export const splitArrByCount = <T extends any>(
   }
   return res;
 };
+
+export const hasLetters = (s: string) => /[a-z,A-Z]/.test(s);

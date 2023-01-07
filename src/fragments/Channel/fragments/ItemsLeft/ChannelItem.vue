@@ -8,6 +8,7 @@ import ChannelItemMenu from '../../component/ChannelItemMenu.vue';
 
 import type { CSSProperties } from 'vue';
 import { makeChannelItemProps } from '../../composables/channelItem';
+import { hasLetters } from '@/utils/helpers';
 
 export default defineComponent({
   props: {
@@ -15,9 +16,8 @@ export default defineComponent({
   },
   emits: ['closeMenu', 'openMenu'],
   setup(props, { attrs, slots, emit }) {
-    const hasChar = /[a-z,A-Z]/;
     const style = computed<CSSProperties>(() => ({
-      letterSpacing: hasChar.test(props.text || '') ? '0px' : '2px',
+      letterSpacing: hasLetters(props.text || '') ? '0px' : '2px',
     }));
 
     const renderContent = (

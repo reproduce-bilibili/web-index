@@ -1,4 +1,4 @@
-@use '@/style/break-point' as * with($key: nav);
+@use '@/style/break-point' as bk-layout with($key: layout);
 @use '@/style/mixins' as *;
 
 :root {
@@ -58,9 +58,15 @@
   --layout_max_width: calc(1980px + 2 * var(--layout_padding));
 }
 
-@include mq($until: lg) {
+@include bk-layout.mq($from: lg) {
   :root {
     --layout_padding: 140px;
+  }
+}
+
+@include bk-layout.mq($until: lg) {
+  :root {
+    --layout_padding: 60px;
   }
 }
 
@@ -78,7 +84,7 @@ body *:after {
 
 body {
   min-width: 1080px;
-  min-height: 120vh;
+  min-height: 200vh;
   background-color: var(--graph_bg_regular);
 }
 

@@ -17,10 +17,17 @@ export interface UseExpendOptions<T extends any> {
   maxSize: number;
   direction?: 'y' | 'x';
   source?: WatchSource<T> | T;
+  expendMaxSize?: number;
 }
 
 export const useExpend = <T extends any>(options: UseExpendOptions<T>) => {
-  const { target = ref(), direction = 'y', maxSize, source } = options;
+  const {
+    target = ref(),
+    direction = 'y',
+    maxSize,
+    source,
+    expendMaxSize,
+  } = options;
 
   const scrollSizePropName: keyof HTMLElement =
     direction === 'y' ? 'scrollHeight' : 'scrollWidth';
@@ -32,21 +39,22 @@ export const useExpend = <T extends any>(options: UseExpendOptions<T>) => {
   const updateScrollSize = (target?: HTMLElement) =>
     (scrollSize.value = target?.[scrollSizePropName] || scrollSize.value);
 
-  if (source) {
-    watch(source, () => nextTick(() => updateScrollSize(target.value)));
-    useResizeObserver((e) => updateScrollSize(e[0].target as HTMLElement), {
-      targetRef: target,
-    });
-  } else {
+  if (!source) {
     useRaf(() => updateScrollSize(target.value));
+  } else {
+    watch(source, () => nextTick(() => updateScrollSize(target.value)));
   }
+  useResizeObserver((e) => updateScrollSize(e[0].target as HTMLElement), {
+    targetRef: target,
+  });
 
   const maxSizePropName: keyof CSSProperties =
     direction === 'y' ? 'max-height' : 'max-width';
   const targetStyle: ComputedRef<CSSProperties> = computed(() => {
     if (needExpend.value && !expended.value)
       return { [maxSizePropName]: `${maxSize}px` };
-    else return {};
+    else
+      return expendMaxSize ? { [maxSizePropName]: `${expendMaxSize}px` } : {};
   });
 
   return {

@@ -2,9 +2,9 @@
 import Dot from '@/components/Dot.vue';
 import Graph from '@/components/Graph/index.vue';
 import SvgIcon from '@/components/SvgIcon.vue';
+import { makeIconItemProps } from '../../composables/iconItem';
 defineProps({
-  iconName: String,
-  text: String,
+  ...makeIconItemProps(),
   hasNew: Boolean,
 });
 </script>
