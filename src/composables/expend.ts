@@ -51,7 +51,7 @@ export const useExpend = <T extends any>(options: UseExpendOptions<T>) => {
   const maxSizePropName: keyof CSSProperties =
     direction === 'y' ? 'max-height' : 'max-width';
   const targetStyle: ComputedRef<CSSProperties> = computed(() => {
-    if (needExpend.value && !expended.value)
+    if ((needExpend.value && !expended.value) || !needExpend.value)
       return { [maxSizePropName]: `${maxSize}px` };
     else
       return expendMaxSize ? { [maxSizePropName]: `${expendMaxSize}px` } : {};
