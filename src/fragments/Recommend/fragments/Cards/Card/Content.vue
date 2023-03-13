@@ -52,7 +52,7 @@ const videoUrl = computed(
   <Graph :href="videoUrl">
     <div class="video-card__cover-wrap">
       <div class="video-card__cover">
-        <div class="video-card__cover__content" v-img="info.cover"></div>
+        <div class="video-card__cover__content" v-img.eager="info.cover"></div>
       </div>
     </div>
   </Graph>

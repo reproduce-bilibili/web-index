@@ -12,6 +12,7 @@ const setSource = (
 const setImg = (img: HTMLImageElement, binding: DirectiveBinding<string>) => {
   img.src = binding.value;
   binding.modifiers.lazy && (img.loading = 'lazy');
+  binding.modifiers.eager && (img.loading = 'eager');
   return img;
 };
 
