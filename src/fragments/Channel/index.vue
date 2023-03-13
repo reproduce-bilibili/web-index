@@ -87,6 +87,7 @@ const {
   }
 }
 .b-channel--fixed {
+  z-index: 999;
   overflow: hidden;
   transition: max-height 0.2s;
   animation: fixed-channel-fade-out 0.2s forwards;

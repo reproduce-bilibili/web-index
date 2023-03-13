@@ -101,3 +101,6 @@ export const splitArrByCount = <T extends any>(
 };
 
 export const hasLetters = (s: string) => /[a-z,A-Z]/.test(s);
+
+export const clearHttpPrefix = (s: string) =>
+  s.replace('http://', '').replace('https://', '');

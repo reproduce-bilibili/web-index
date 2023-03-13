@@ -17,6 +17,8 @@
   --Lb4: #40c5f1;
   --Lb5: #00aeec;
   --Pi5: #ff6699;
+  --Or5: #ff7f24;
+  --Or1: #fff0e3;
   --bg1: var(--Wh0);
   --bg1_float: var(--Ga11);
   --bg2: var(--Ga0);
@@ -181,6 +183,7 @@ td {
   width: 100%;
   height: 100%;
   line-height: 1;
+  object-fit: inherit;
 }
 
 .v-img img {

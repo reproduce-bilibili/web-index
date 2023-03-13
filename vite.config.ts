@@ -38,6 +38,7 @@ export default defineConfig({
       ...createProxy('s1.hdslb.com'),
       ...createProxy('i2.hdslb.com'),
       ...createProxy('i1.hdslb.com'),
+      ...createProxy('api.bilibili.com'),
     },
     port: 23333,
   },

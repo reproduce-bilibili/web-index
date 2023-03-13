@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import Header from '@/fragments/Header/index.vue';
 import Channel from '@/fragments/Channel/index.vue';
+import Recommend from '@/fragments/Recommend/index.vue';
 </script>
 
 <template>
   <div id="bili-index">
     <Header />
     <Channel />
+    <Recommend />
   </div>
 </template>
 
