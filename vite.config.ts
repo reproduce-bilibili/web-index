@@ -1,7 +1,7 @@
 import { CommonServerOptions, defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
-import svg from 'vite-plugin-svg-icons-next';
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons-next';
 import path from 'path';
 
 function createProxy(host: string): CommonServerOptions['proxy'] {
@@ -24,7 +24,7 @@ export default defineConfig({
   plugins: [
     vue(),
     vueJsx({ optimize: false, enableObjectSlots: false }),
-    svg.createSvgIconsPlugin({
+    createSvgIconsPlugin({
       iconDirs: [path.resolve(__dirname, './src/icons')],
       symbolId: '[dir]-[name]',
     }),
