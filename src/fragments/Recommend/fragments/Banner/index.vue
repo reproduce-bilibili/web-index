@@ -1,7 +1,24 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import Shim from './Shim.vue';
+import Content from './Content.vue';
+</script>
 
 <template>
-  <div>banner</div>
+  <div class="b-banner">
+    <div class="b-banner__wrapper">
+      <Shim />
+      <Content />
+    </div>
+  </div>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+.b-banner {
+  &__wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 6px;
+  }
+}
+</style>

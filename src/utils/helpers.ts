@@ -104,3 +104,6 @@ export const hasLetters = (s: string) => /[a-z,A-Z]/.test(s);
 
 export const clearHttpPrefix = (s: string) =>
   s.replace('http://', '').replace('https://', '');
+
+export const arr2RGB = (arr: [number, number, number]) =>
+  `rgb(${arr[0]}, ${arr[1]}, ${arr[2]})`;
