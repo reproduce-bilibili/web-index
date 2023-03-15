@@ -132,7 +132,7 @@ const dataList = computed<(LinkProps & { src: string; title: string })[]>(
     <ul>
       <li
         v-for="(_, index) in dataList.length"
-        :class="{ 'is-active': index === curIndex, 'right': !!right, 'left': !right }" @click="swiper?.slideTo(index)"></li>
+        :class="{ 'is-active': index === curIndex, 'right': !!right, 'left': !right }" @click="swiper?.slideToLoop(index)"></li>
     </ul>
   </div>
   <div class="b-banner__buttons">
