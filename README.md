@@ -1,16 +1,41 @@
-# Vue 3 + TypeScript + Vite
+# Bilibili Web Index
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+简单复刻 B 站 web 主页，能看不能用，只接入了推荐视频的接口，仅供学习使用
 
-## Recommended IDE Setup
+![](./doc//index.png)
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+## 实现清单
 
-## Type Support For `.vue` Imports in TS
+一些实现了的功能
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's Take Over mode by following these steps:
+- 响应式布局
 
-1. Run `Extensions: Show Built-in Extensions` from VS Code's command palette, look for `TypeScript and JavaScript Language Features`, then right click and select `Disable (Workspace)`. By default, Take Over mode will enable itself if the default TypeScript extension is disabled.
-2. Reload the VS Code window by running `Developer: Reload Window` from the command palette.
+- 菜单弹出卡片
 
-You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/volar/discussions/471).
+- 水平\垂直 Tabs
+
+- 溢出展开
+
+- 头像补间动画
+
+- 水平\垂直下拉菜单
+
+- 轮播图
+
+- 触底加载
+
+- 加载时的骨架控件以及其动画
+
+## 预览
+
+安装依赖
+
+```shell
+npm install
+```
+
+启动开发服务
+
+```shell
+npm run dev
+```
