@@ -1,4 +1,4 @@
-import { CommonServerOptions, defineConfig } from 'vite';
+import { CommonServerOptions, defineConfig, PluginOption } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons-next';
@@ -27,7 +27,7 @@ export default defineConfig({
     createSvgIconsPlugin({
       iconDirs: [path.resolve(__dirname, './src/icons')],
       symbolId: '[dir]-[name]',
-    }),
+    }) as unknown as PluginOption,
   ],
   resolve: {
     alias: [{ find: '@', replacement: path.resolve(__dirname, './src') }],
