@@ -1,0 +1,25 @@
+{
+  "rewrites": [
+    {
+      "source": "/i0.hdslb.com/:url*",
+      "destination": "https://i0.hdslb.com/:url*"
+    },
+    {
+      "source": "/s1.hdslb.com/:url*",
+      "destination": "https://s1.hdslb.com/:url*"
+    },
+    {
+      "source": "/i2.hdslb.com/:url*",
+      "destination": "https://i2.hdslb.com/:url*"
+    },
+    {
+      "source": "/i1.hdslb.com/:url*",
+      "destination": "https://i1.hdslb.com/:url*"
+    },
+    {
+      "source": "/api.bilibili.com/:url*",
+      "destination": "https://api.bilibili.com/:url*"
+    }
+  ],
+  "trailingSlash": false
+}
