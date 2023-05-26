@@ -16,7 +16,7 @@ export interface UseExpendOptions<T extends any> {
   target?: Ref<HTMLElement | undefined>;
   maxSize: number;
   direction?: 'y' | 'x';
-  source?: WatchSource<T> | T;
+  source?: WatchSource<T>;
   expendMaxSize?: number;
 }
 

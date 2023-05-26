@@ -10,7 +10,7 @@ import BadgeCount from '../components/BadgeCount.vue';
 
 const { t } = useI18nLocal(i18nOptions);
 
-const data = ref([
+const data = ref<{ title: string; href: string; count?: number }[]>([
   {
     title: '回复我的',
     href: 'https://message.bilibili.com/#/reply',

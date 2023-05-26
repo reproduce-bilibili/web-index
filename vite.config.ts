@@ -21,8 +21,15 @@ function createProxy(host: string): CommonServerOptions['proxy'] {
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/',
   plugins: [
-    vue(),
+    vue({
+      template: {
+        transformAssetUrls: {
+          includeAbsolute: false,
+        },
+      },
+    }),
     vueJsx({ optimize: false, enableObjectSlots: false }),
     createSvgIconsPlugin({
       iconDirs: [path.resolve(__dirname, './src/icons')],

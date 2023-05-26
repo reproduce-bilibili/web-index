@@ -24,7 +24,7 @@ const {
   needExpend,
 } = useExpend({
   maxSize: 92,
-  source: props.tagList,
+  source: () => props.tagList,
 });
 
 const expendBtnText = computed(() => (expended.value ? '收起' : '展开更多'));
